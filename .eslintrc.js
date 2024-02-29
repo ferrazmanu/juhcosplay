@@ -33,8 +33,8 @@ module.exports = {
         'import',
     ],
     rules: {
-        semi: ['error', 'always'],
-        "sort-imports": ["error", {
+        semi: ['warn', 'always'],
+        "sort-imports": ["warn", {
             "ignoreCase": true,
             "ignoreDeclarationSort": true,
         }],
@@ -53,7 +53,7 @@ module.exports = {
         ],
         'import/prefer-default-export': 'off',
         'import/extensions': [
-            'error',
+            'warn',
             'ignorePackages',
             {
                 ts: 'never',

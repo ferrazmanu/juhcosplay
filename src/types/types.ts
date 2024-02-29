@@ -20,12 +20,14 @@ export interface EventProps {
     name: string;
     id: string;
     description: string;
-    image: [
-        {
-            url: string;
-            id: string;
-        },
-    ];
+    image: ImageProps[];
+    src?: string;
+    srcSet?: string[];
+}
+
+export interface ImageProps {
+    url: string;
+    id: string;
 }
 
 export interface LinksProps {

@@ -4,7 +4,27 @@ import bgImage from '../assets/images/padme.jpeg';
 
 const GlobalStyle = createGlobalStyle`
     html{
-          min-height: 100dvh;
+      min-height: 100dvh;
+
+      /* width */
+      ::-webkit-scrollbar {
+        width: 10px;
+      }
+
+      /* Track */
+      ::-webkit-scrollbar-track {
+        background: #ffe6e6;
+      }
+
+      /* Handle */
+      ::-webkit-scrollbar-thumb {
+        background: #620000;
+      }
+
+      /* Handle on hover */
+      ::-webkit-scrollbar-thumb:hover {
+        background: #555;
+      }
     }
 
    *{
@@ -49,7 +69,7 @@ const GlobalStyle = createGlobalStyle`
    }
 
   body {
-    margin: 0;
+    margin: 0 !important;
     font-family: ${({ theme }) => theme.fonts.secondary};
     -webkit-font-smoothing: antialiased;
     -moz-osx-font-smoothing: grayscale;
@@ -60,7 +80,6 @@ const GlobalStyle = createGlobalStyle`
     background-position: center center;
     background-image: url(${bgImage});
     min-height: 100dvh;
-    overflow: hidden;
     backdrop-filter: blur(15px);
     position: relative;
 

@@ -66,25 +66,27 @@ const Home: React.FC = () => {
             {loading ? (
                 <Loading />
             ) : (
-                <PhotoGrid>
-                    {allEvents.map((item) => {
-                        return (
-                            <GridItem
-                                key={item.id}
-                                onClick={() => {
-                                    setToggler(!toggler);
-                                    setImages(item.image.map((x) => x.url));
-                                }}
-                            >
-                                <img
-                                    src={item.image[0].url}
-                                    alt=""
-                                    loading="eager"
-                                />
-                            </GridItem>
-                        );
-                    })}
-                </PhotoGrid>
+                <>
+                    <PhotoGrid>
+                        {allEvents.map((item) => {
+                            return (
+                                <GridItem
+                                    key={item.id}
+                                    onClick={() => {
+                                        setToggler(!toggler);
+                                        setImages(item.image.map((x) => x.url));
+                                    }}
+                                >
+                                    <img
+                                        src={item.image[0].url}
+                                        alt=""
+                                        loading="eager"
+                                    />
+                                </GridItem>
+                            );
+                        })}
+                    </PhotoGrid>
+                </>
             )}
 
             <FsLightbox toggler={!!toggler} sources={images} />
