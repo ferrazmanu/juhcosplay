@@ -35,7 +35,7 @@ export const Header = styled.header<Props>`
         justify-content: center;
         gap: ${({ theme }) => theme.spacing._30};
         padding: 45px 30px;
-        max-width: 70dvw;
+        max-width: 80dvw;
         width: 100%;
         margin: 0 auto;
         transition: 0.3s ease-in-out;
@@ -56,7 +56,7 @@ export const Header = styled.header<Props>`
             height: 100dvh;
             flex-direction: column;
             max-width: 30%;
-            background: ${({ theme }) => theme.colors.background};
+            background: ${({ theme }) => theme.colors.primary};
             border-left: 3px solid ${({ theme }) => theme.colors.secondary};
             align-items: flex-end;
             text-align: right;

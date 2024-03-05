@@ -24,19 +24,11 @@ const theme: DefaultTheme = {
         secondary: 'Raleway',
     },
     colors: {
-        white: ' #0a0a0a',
-        black: '#ebebeb',
-        primary: '#50396D',
-        secondary: '#620000',
-        tertiary: '#007150',
-        quarternary: '#50396D',
-        quinquenary: '#50396D',
-        background: '#620000',
-        gradient:
-            'linear-gradient( 0deg, rgba(255, 255, 255, 0) 0%, rgb(97 97 97) 100% )',
-        fullgradient: 'rgba(159, 159, 159, 0.44)',
+        white: '#ebebeb',
+        black: '#0a0a0a',
+        primary: '#371f53',
+        secondary: '#50396D',
         button: 'transparent',
-        loading: '#0a0a0a',
     },
 };
 

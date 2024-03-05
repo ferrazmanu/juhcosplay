@@ -10,7 +10,7 @@ const NotFound: React.FC = () => {
 
     return (
         <Wrapper>
-            <FullContainer fullgradient={true}>
+            <FullContainer>
                 <Container fullheight center>
                     <div className="not-found">
                         <p>

@@ -11,6 +11,7 @@ import Loading from '../../components/Loading';
 import { EventProps, EventsProps } from '../../types/types';
 import { Container } from '../../components/Container';
 import PageContent from '../../components/PageContent';
+import { formatDate } from '../../utils/fromat';
 
 const Home: React.FC = () => {
     const [allEvents, setAllEvents] = useState<EventProps[]>([]);
@@ -25,7 +26,9 @@ const Home: React.FC = () => {
                 events {
                     name
                     id
-                    description
+                    tituloCosplay
+                    tags
+                    date
                     image {
                         url
                         id
@@ -61,33 +64,49 @@ const Home: React.FC = () => {
                         'Erat nam at lectus urna duis convallis convallis tellus. At imperdiet dui accumsan sit amet nulla facilisi morbi tempus. Fringilla phasellus faucibus scelerisque eleifend donec pretium vulputate sapien.'
                     }
                 />
-            </Container>
 
-            {loading ? (
-                <Loading />
-            ) : (
-                <>
-                    <PhotoGrid>
-                        {allEvents.map((item) => {
-                            return (
-                                <GridItem
-                                    key={item.id}
-                                    onClick={() => {
-                                        setToggler(!toggler);
-                                        setImages(item.image.map((x) => x.url));
-                                    }}
-                                >
-                                    <img
-                                        src={item.image[0].url}
-                                        alt=""
-                                        loading="eager"
-                                    />
-                                </GridItem>
-                            );
-                        })}
-                    </PhotoGrid>
-                </>
-            )}
+                {loading ? (
+                    <Loading />
+                ) : (
+                    <>
+                        <PhotoGrid>
+                            {allEvents.map((item) => {
+                                return (
+                                    <GridItem
+                                        key={item.id}
+                                        onClick={() => {
+                                            setToggler(!toggler);
+                                            setImages(
+                                                item.image.map((x) => x.url)
+                                            );
+                                        }}
+                                    >
+                                        <img
+                                            src={item.image[0].url}
+                                            alt=""
+                                            loading="eager"
+                                        />
+                                        <div className="info">
+                                            <h5>
+                                                {item.tituloCosplay} -{' '}
+                                                {item.name}
+                                            </h5>
+                                            <span>{formatDate(item.date)}</span>
+                                            <div className="tags">
+                                                {item.tags.map((tag) => (
+                                                    <span key={tag}>
+                                                        #{tag}
+                                                    </span>
+                                                ))}
+                                            </div>
+                                        </div>
+                                    </GridItem>
+                                );
+                            })}
+                        </PhotoGrid>
+                    </>
+                )}
+            </Container>
 
             <FsLightbox toggler={!!toggler} sources={images} />
         </MainWrapper>

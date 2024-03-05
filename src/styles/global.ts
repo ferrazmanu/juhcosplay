@@ -1,7 +1,5 @@
 import { createGlobalStyle } from 'styled-components';
 
-import bgImage from '../assets/images/padme.jpeg';
-
 const GlobalStyle = createGlobalStyle`
     html{
       min-height: 100dvh;
@@ -18,7 +16,7 @@ const GlobalStyle = createGlobalStyle`
 
       /* Handle */
       ::-webkit-scrollbar-thumb {
-        background: #620000;
+        background: ${({ theme }) => theme.colors.secondary};
       }
 
       /* Handle on hover */
@@ -55,7 +53,7 @@ const GlobalStyle = createGlobalStyle`
 
    a{
     text-decoration: none;
-    color: ${({ theme }) => theme.colors.white};
+    color: ${({ theme }) => theme.colors.primary};
    }
 
    ul, li{
@@ -74,25 +72,10 @@ const GlobalStyle = createGlobalStyle`
     -webkit-font-smoothing: antialiased;
     -moz-osx-font-smoothing: grayscale;
     transition: 0.3s ease-in-out;
-    color: ${({ theme }) => theme.colors.white};
-    background-repeat: no-repeat;
-    background-size: cover;
-    background-position: center center;
-    background-image: url(${bgImage});
+    color: ${({ theme }) => theme.colors.primary};
     min-height: 100dvh;
-    backdrop-filter: blur(15px);
     position: relative;
-
-    &::after{
-      content: '';
-      background: linear-gradient(0deg, rgba(255, 255, 255, 0) 60%, rgba(201, 35, 35, 1) 100%);
-      height: 100%;
-      width: 100%;
-      display: flex;
-      position: absolute;
-      inset: 0;
-      z-index: -1;
-    }
+    background-color: ${({ theme }) => theme.colors.white};
   }
 
   .error{

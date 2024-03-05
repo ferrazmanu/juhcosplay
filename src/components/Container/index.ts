@@ -1,36 +1,10 @@
-import styled, { css } from 'styled-components';
+import styled from 'styled-components';
 
 interface Props {
     gradient?: boolean;
-    fullgradient?: boolean;
     fullheight?: boolean;
     center?: boolean;
 }
-
-const gradient = css`
-    &::after {
-        content: '';
-        position: absolute;
-        inset: 0;
-        height: inherit;
-        width: inherit;
-        z-index: 1;
-
-        background: ${({ theme }) => theme.colors.gradient};
-    }
-`;
-
-const fullgradient = css`
-    &::after {
-        content: '';
-        position: absolute;
-        inset: 0;
-        height: inherit;
-        width: inherit;
-        z-index: 1;
-        background-color: ${({ theme }) => theme.colors.fullgradient};
-    }
-`;
 
 export const Container = styled.section<Props>`
     max-width: 80dvw;
@@ -53,8 +27,6 @@ export const FullContainer = styled.section<Props>`
     flex-direction: column;
     position: absolute;
     inset: 0;
-    ${(props) => props.gradient && gradient};
-    ${(props) => props.fullgradient && fullgradient};
 
     img {
         position: absolute;
