@@ -1,6 +1,5 @@
 import React, { useEffect, useState } from 'react';
 import client from '../../service/config';
-import { gql } from 'graphql-request';
 
 import FsLightbox from 'fslightbox-react';
 
@@ -8,35 +7,26 @@ import { MainWrapper } from '../../components/MainWrapper';
 import { GridItem, PhotoGrid } from '../../components/PhotoGrid';
 import Loading from '../../components/Loading';
 
-import { EventProps, EventsProps } from '../../types/types';
+import { EventProps, EventsProps, PageProps } from '../../types/types';
 import { Container } from '../../components/Container';
 import PageContent from '../../components/PageContent';
 import { formatDate } from '../../utils/fromat';
+import { eventQuery, homePageQuery } from '../../data/queries';
 
 const Home: React.FC = () => {
     const [allEvents, setAllEvents] = useState<EventProps[]>([]);
+    const [pageContent, setPageContent] = useState<PageProps>({
+        page: {
+            mainText: '',
+            pageName: '',
+        },
+    });
     const [loading, setLoading] = useState(false);
     const [images, setImages] = useState<string[]>([]);
     const [toggler, setToggler] = useState<boolean>(false);
 
     const fetchEvents = async () => {
         setLoading(true);
-        const eventQuery = gql`
-            query Events {
-                events {
-                    name
-                    id
-                    tituloCosplay
-                    tags
-                    date
-                    image {
-                        url
-                        id
-                    }
-                }
-            }
-        `;
-
         try {
             const { events }: EventsProps = await client.request(eventQuery);
             setAllEvents(events);
@@ -51,24 +41,38 @@ const Home: React.FC = () => {
         }
     };
 
+    const fetchText = async () => {
+        setLoading(true);
+        try {
+            const { page }: PageProps = await client.request(homePageQuery);
+            setPageContent({ page });
+
+            if (!page) {
+                throw new Error('Network response was not ok');
+            }
+        } catch (e) {
+            console.error(e);
+        } finally {
+            setLoading(false);
+        }
+    };
+
     useEffect(() => {
         fetchEvents();
+        fetchText();
     }, []);
 
     return (
         <MainWrapper>
             <Container>
-                <PageContent
-                    title="JuhCosplay"
-                    text={
-                        'Erat nam at lectus urna duis convallis convallis tellus. At imperdiet dui accumsan sit amet nulla facilisi morbi tempus. Fringilla phasellus faucibus scelerisque eleifend donec pretium vulputate sapien.'
-                    }
-                />
-
                 {loading ? (
                     <Loading />
                 ) : (
                     <>
+                        <PageContent
+                            title={pageContent.page.pageName}
+                            text={pageContent.page.mainText}
+                        />
                         <PhotoGrid>
                             {allEvents.map((item) => {
                                 return (
