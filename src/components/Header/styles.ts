@@ -7,6 +7,7 @@ interface Props {
 export const Header = styled.header<Props>`
     position: relative;
     z-index: 10;
+    background: ${({ theme }) => theme.colors.primary};
 
     button {
         color: ${({ theme }) => theme.colors.white};
@@ -23,6 +24,7 @@ export const Header = styled.header<Props>`
         justify-content: flex-end;
         padding: 5px 10px;
         align-items: center;
+        background: ${({ theme }) => theme.colors.white};
 
         button {
             display: flex;
@@ -61,10 +63,6 @@ export const Header = styled.header<Props>`
             align-items: flex-end;
             text-align: right;
             gap: 10px;
-
-            li > a {
-                color: ${({ theme }) => theme.colors.white};
-            }
         }
 
         @media only screen and (max-width: 600px) {
@@ -86,6 +84,7 @@ export const Header = styled.header<Props>`
                 box-shadow: 0 0 1px rgb(0 0 0 / 0%);
                 position: relative;
                 overflow: hidden;
+                color: ${({ theme }) => theme.colors.white};
 
                 &::before {
                     content: '';

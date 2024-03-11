@@ -3,13 +3,14 @@ import styled from 'styled-components';
 export const MainWrapper = styled.main`
     /* altura minima removendo o tamanho do header e do footer */
     min-height: calc(100dvh - 121px);
-
+    padding-top: 5vh;
     display: flex;
     flex-direction: column;
     gap: 30px;
 
     @media only screen and (max-width: 800px) {
         min-height: calc(100dvh - 50px);
+        padding-top: 0;
     }
 
     .grid {
