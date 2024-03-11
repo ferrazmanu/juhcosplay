@@ -19,12 +19,8 @@ export const Wrapper = styled.div<Props>`
             opacity: 0.5;
         `}
 
-    button {
-        display: flex;
-        color: ${({ theme }) => theme.colors.white};
-    }
-
-    input {
-        height: 38px;
+    textarea {
+        resize: none;
+        min-height: 70px;
     }
 `;

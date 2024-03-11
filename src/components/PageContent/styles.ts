@@ -10,6 +10,7 @@ export const Wrapper = styled.div`
     text-align: center;
 
     h2 {
+        color: ${({ theme }) => theme.colors.primary};
         font-size: ${({ theme }) => theme.fontSizes.medium_36};
     }
 

@@ -27,7 +27,7 @@ const theme: DefaultTheme = {
         white: '#ebebeb',
         black: '#0a0a0a',
         primary: '#371f53',
-        secondary: '#50396D',
+        secondary: '#624f8f',
         button: 'transparent',
     },
 };

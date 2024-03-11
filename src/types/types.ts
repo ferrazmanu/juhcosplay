@@ -53,3 +53,8 @@ export interface SocialProps {
     id: string;
     url: string;
 }
+
+export type Inputs = {
+    name: string;
+    message: string;
+};

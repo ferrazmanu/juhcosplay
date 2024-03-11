@@ -36,7 +36,7 @@ export const Header = styled.header<Props>`
         display: flex;
         justify-content: center;
         gap: ${({ theme }) => theme.spacing._30};
-        padding: 45px 30px;
+        padding: 45px 30px 40px;
         max-width: 80dvw;
         width: 100%;
         margin: 0 auto;

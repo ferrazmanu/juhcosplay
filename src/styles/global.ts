@@ -42,9 +42,10 @@ const GlobalStyle = createGlobalStyle`
         appearance: none;
         -webkit-appearance: none;
         border: none;
-        color: ${({ theme }) => theme.colors.white};
-        font-size: ${({ theme }) => theme.fontSizes.small_14};
-
+        width: 100%;
+        font-family: ${({ theme }) => theme.fonts.primary};
+        font-size: ${({ theme }) => theme.fontSizes.small_18};
+        color: ${({ theme }) => theme.colors.primary};
     }
 
     button{
