@@ -50,7 +50,7 @@ export const GridItem = styled.div`
         gap: 4px;
         padding: 10px 8px;
         background-color: ${({ theme }) => theme.colors.secondary};
-        color: ${({ theme }) => theme.colors.black};
+        color: ${({ theme }) => theme.colors.white};
         transform: translateY(100%);
         transition: 0.3s ease-in-out;
 

@@ -61,6 +61,10 @@ export const Header = styled.header<Props>`
             align-items: flex-end;
             text-align: right;
             gap: 10px;
+
+            li > a {
+                color: ${({ theme }) => theme.colors.white};
+            }
         }
 
         @media only screen and (max-width: 600px) {
