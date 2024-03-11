@@ -1,29 +1,25 @@
 import React, { useEffect, useState } from 'react';
 import { Container } from '../../components/Container';
 import { MainWrapper } from '../../components/MainWrapper';
-import PageContent from '../../components/PageContent';
 import Loading from '../../components/Loading';
-import { PageProps } from '../../types/types';
+import { SocialProps, SocialsProps } from '../../types/types';
 import client from '../../service/config';
-import { aboutPageQuery } from '../../data/queries';
+import { socialsQuery } from '../../data/queries';
+import { ContactInfo } from '../../components/ContactInfo';
 
-const About: React.FC = () => {
-    const [pageContent, setPageContent] = useState<PageProps>({
-        page: {
-            mainText: '',
-            pageName: '',
-        },
-    });
+const Contact: React.FC = () => {
+    const [allSocials, setAllSocials] = useState<SocialProps[]>([]);
 
     const [loading, setLoading] = useState(false);
 
-    const fetchText = async () => {
+    const fetchSocials = async () => {
         setLoading(true);
         try {
-            const { page }: PageProps = await client.request(aboutPageQuery);
-            setPageContent({ page });
+            const { socials }: SocialsProps =
+                await client.request(socialsQuery);
+            setAllSocials(socials);
 
-            if (!page) {
+            if (!socials) {
                 throw new Error('Network response was not ok');
             }
         } catch (e) {
@@ -34,7 +30,7 @@ const About: React.FC = () => {
     };
 
     useEffect(() => {
-        fetchText();
+        fetchSocials();
     }, []);
 
     return (
@@ -44,10 +40,11 @@ const About: React.FC = () => {
                     <Loading />
                 ) : (
                     <>
-                        <PageContent
-                            title={pageContent.page.pageName}
-                            text={pageContent.page.mainText}
-                        />
+                        <ContactInfo>
+                            {allSocials.map((item) => {
+                                return <span key={item.id}>{item.name}</span>;
+                            })}
+                        </ContactInfo>
                     </>
                 )}
             </Container>
@@ -55,4 +52,4 @@ const About: React.FC = () => {
     );
 };
 
-export default About;
+export default Contact;

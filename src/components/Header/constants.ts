@@ -9,4 +9,9 @@ export const links = [
         link: '/sobre',
         title: 'Sobre',
     },
+    {
+        id: 2,
+        link: '/contato',
+        title: 'Contato',
+    },
 ];

@@ -16,6 +16,7 @@ import Header from './components/Header';
 import Footer from './components/Footer';
 
 import GlobalStyle from './styles/global';
+import Contact from './pages/Contact';
 
 const router = createBrowserRouter([
     {
@@ -26,6 +27,11 @@ const router = createBrowserRouter([
     {
         path: '/sobre',
         element: <About />,
+        errorElement: <NotFound />,
+    },
+    {
+        path: '/contato',
+        element: <Contact />,
         errorElement: <NotFound />,
     },
 ]);
