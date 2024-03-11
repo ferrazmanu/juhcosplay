@@ -11,11 +11,19 @@ const Header: FC = () => {
 
     return (
         <S.Header open={open}>
-            <button type="button" onClick={() => setOpen(!open)}>
-                <MenuIcon />
+            <button
+                type="button"
+                onClick={() => setOpen(!open)}
+                className="open"
+            >
+                <MenuIcon color="inherit" />
             </button>
             <ul>
-                <button type="button" onClick={() => setOpen(!open)}>
+                <button
+                    type="button"
+                    onClick={() => setOpen(!open)}
+                    className="close"
+                >
                     <CloseIcon />
                 </button>
                 {links.map((item) => {

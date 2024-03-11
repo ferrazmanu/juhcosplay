@@ -2,15 +2,17 @@ import styled from 'styled-components';
 
 export const MainWrapper = styled.main`
     /* altura minima removendo o tamanho do header e do footer */
-    min-height: calc(100dvh - 117.4px);
+    min-height: calc(100dvh - 10px);
     padding-top: 5vh;
     display: flex;
     flex-direction: column;
     gap: 30px;
+    margin-left: 140px;
 
     @media only screen and (max-width: 800px) {
         min-height: calc(100dvh - 50px);
         padding-top: 0;
+        margin-left: 0;
     }
 
     .grid {

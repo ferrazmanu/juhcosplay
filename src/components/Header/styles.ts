@@ -5,13 +5,20 @@ interface Props {
 }
 
 export const Header = styled.header<Props>`
-    position: relative;
+    position: fixed;
     z-index: 10;
     background: ${({ theme }) => theme.colors.primary};
 
     button {
-        color: ${({ theme }) => theme.colors.white};
         display: none;
+
+        &.close {
+            color: ${({ theme }) => theme.colors.white};
+        }
+
+        &.open {
+            color: ${({ theme }) => theme.colors.black};
+        }
 
         svg {
             display: flex;
@@ -19,6 +26,7 @@ export const Header = styled.header<Props>`
     }
 
     @media only screen and (max-width: 800px) {
+        position: relative;
         min-height: 40px;
         display: flex;
         justify-content: flex-end;
@@ -29,6 +37,7 @@ export const Header = styled.header<Props>`
         button {
             display: flex;
             align-self: flex-end;
+            justify-content: flex-end;
         }
     }
 
@@ -41,6 +50,8 @@ export const Header = styled.header<Props>`
         width: 100%;
         margin: 0 auto;
         transition: 0.3s ease-in-out;
+        height: 100dvh;
+        flex-direction: column;
 
         ${(props) =>
             props.open
