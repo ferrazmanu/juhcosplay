@@ -16,6 +16,11 @@ export const PhotoGrid = styled.div`
             minmax(${MIN_WIDTH_MOBILE}, auto)
         );
     }
+
+    @media only screen and (max-width: 650px) {
+        display: flex;
+        flex-direction: column;
+    }
 `;
 
 export const GridItem = styled.a`
@@ -58,6 +63,10 @@ export const GridItem = styled.a`
             font-family: ${({ theme }) => theme.fonts.secondary};
             text-transform: unset;
             font-size: ${({ theme }) => theme.fontSizes.small_18};
+        }
+
+        @media only screen and (max-width: 800px) {
+            transform: translateY(0%);
         }
     }
 `;
