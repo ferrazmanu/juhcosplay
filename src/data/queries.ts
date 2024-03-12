@@ -35,7 +35,7 @@ export const eventQuery = gql`
 
 export const homePageQuery = gql`
     query HomePage {
-        page(where: { pageName: "JuhCosplay" }) {
+        page(where: { pageName: "Juh Cosplay" }) {
             mainText
             pageName
         }
