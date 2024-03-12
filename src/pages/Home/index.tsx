@@ -83,7 +83,7 @@ const Home: React.FC = () => {
                                         <div className="info">
                                             <h5>
                                                 {item.tituloCosplay} -{' '}
-                                                {item.name}
+                                                {item.eventName}
                                             </h5>
                                             <span>{formatDate(item.date)}</span>
                                         </div>

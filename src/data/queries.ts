@@ -3,7 +3,7 @@ import { gql } from 'graphql-request';
 export const eventsQuery = gql`
     query Events {
         events {
-            name
+            eventName
             id
             tituloCosplay
             tags
@@ -19,7 +19,7 @@ export const eventsQuery = gql`
 export const eventQuery = gql`
     query Event($slug: String) {
         event(where: { slug: $slug }) {
-            name
+            eventName
             id
             tituloCosplay
             tags

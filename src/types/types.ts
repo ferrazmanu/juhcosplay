@@ -17,7 +17,7 @@ export interface EventsProps {
 }
 
 export interface EventProps {
-    name: string;
+    eventName: string;
     id: string;
     tituloCosplay: string;
     date: string;

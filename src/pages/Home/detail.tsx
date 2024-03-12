@@ -58,7 +58,7 @@ const CosplayDetail: React.FC = () => {
                     <>
                         <PageContent
                             title={eventData?.tituloCosplay}
-                            text={`${eventData?.name} - ${eventData?.date && formatDate(eventData.date)}`}
+                            text={`${eventData?.eventName} - ${eventData?.date && formatDate(eventData.date)}`}
                         >
                             <div className="tags">
                                 {eventData?.tags.map((tag) => (
