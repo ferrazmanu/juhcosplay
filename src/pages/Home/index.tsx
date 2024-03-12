@@ -1,8 +1,6 @@
 import React, { useEffect, useState } from 'react';
 import client from '../../service/config';
 
-import FsLightbox from 'fslightbox-react';
-
 import { MainWrapper } from '../../components/MainWrapper';
 import { GridItem, PhotoGrid } from '../../components/PhotoGrid';
 import Loading from '../../components/Loading';
@@ -11,7 +9,7 @@ import { EventProps, EventsProps, PageProps } from '../../types/types';
 import { Container } from '../../components/Container';
 import PageContent from '../../components/PageContent';
 import { formatDate } from '../../utils/fromat';
-import { eventQuery, homePageQuery } from '../../data/queries';
+import { eventsQuery, homePageQuery } from '../../data/queries';
 
 const Home: React.FC = () => {
     const [allEvents, setAllEvents] = useState<EventProps[]>([]);
@@ -22,13 +20,11 @@ const Home: React.FC = () => {
         },
     });
     const [loading, setLoading] = useState(false);
-    const [images, setImages] = useState<string[]>([]);
-    const [toggler, setToggler] = useState<boolean>(false);
 
     const fetchEvents = async () => {
         setLoading(true);
         try {
-            const { events }: EventsProps = await client.request(eventQuery);
+            const { events }: EventsProps = await client.request(eventsQuery);
             setAllEvents(events);
 
             if (!events) {
@@ -78,16 +74,10 @@ const Home: React.FC = () => {
                                 return (
                                     <GridItem
                                         key={item.id}
-                                        onClick={() => {
-                                            setToggler(!toggler);
-                                            setImages(
-                                                item.image.map((x) => x.url)
-                                            );
-                                        }}
+                                        href={`/cosplay/${item.slug}`}
                                     >
                                         <img
                                             src={item.image[0].url}
-                                            alt=""
                                             loading="eager"
                                         />
                                         <div className="info">
@@ -96,13 +86,6 @@ const Home: React.FC = () => {
                                                 {item.name}
                                             </h5>
                                             <span>{formatDate(item.date)}</span>
-                                            <div className="tags">
-                                                {item.tags.map((tag) => (
-                                                    <span key={tag}>
-                                                        #{tag}
-                                                    </span>
-                                                ))}
-                                            </div>
                                         </div>
                                     </GridItem>
                                 );
@@ -111,8 +94,6 @@ const Home: React.FC = () => {
                     </>
                 )}
             </Container>
-
-            <FsLightbox toggler={!!toggler} sources={images} />
         </MainWrapper>
     );
 };

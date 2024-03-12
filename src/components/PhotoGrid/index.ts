@@ -18,7 +18,7 @@ export const PhotoGrid = styled.div`
     }
 `;
 
-export const GridItem = styled.div`
+export const GridItem = styled.a`
     width: 100%;
     aspect-ratio: 1;
     display: flex;
@@ -58,12 +58,6 @@ export const GridItem = styled.div`
             font-family: ${({ theme }) => theme.fonts.secondary};
             text-transform: unset;
             font-size: ${({ theme }) => theme.fontSizes.small_18};
-        }
-
-        .tags {
-            display: flex;
-            gap: 4px;
-            font-size: ${({ theme }) => theme.fontSizes.small_12};
         }
     }
 `;

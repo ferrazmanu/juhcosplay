@@ -21,6 +21,7 @@ export interface EventProps {
     id: string;
     tituloCosplay: string;
     date: string;
+    slug: string;
     tags: string[];
     image: ImageProps[];
     srcSet?: string[];

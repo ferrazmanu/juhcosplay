@@ -18,4 +18,10 @@ export const Wrapper = styled.div`
         font-size: ${({ theme }) => theme.fontSizes.medium_24};
         font-family: ${({ theme }) => theme.fonts.secondary};
     }
+
+    .tags {
+        display: flex;
+        gap: 4px;
+        font-size: ${({ theme }) => theme.fontSizes.small_14};
+    }
 `;

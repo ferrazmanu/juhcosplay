@@ -1,6 +1,6 @@
 import { gql } from 'graphql-request';
 
-export const eventQuery = gql`
+export const eventsQuery = gql`
     query Events {
         events {
             name
@@ -8,6 +8,23 @@ export const eventQuery = gql`
             tituloCosplay
             tags
             date
+            slug
+            image {
+                url
+                id
+            }
+        }
+    }
+`;
+export const eventQuery = gql`
+    query Event($slug: String) {
+        event(where: { slug: $slug }) {
+            name
+            id
+            tituloCosplay
+            tags
+            date
+            slug
             image {
                 url
                 id

@@ -17,11 +17,17 @@ import Footer from './components/Footer';
 
 import GlobalStyle from './styles/global';
 import Contact from './pages/Contact';
+import CosplayDetail from './pages/Home/detail';
 
 const router = createBrowserRouter([
     {
         path: '/',
         element: <Home />,
+        errorElement: <NotFound />,
+    },
+    {
+        path: '/cosplay/:slug',
+        element: <CosplayDetail />,
         errorElement: <NotFound />,
     },
     {

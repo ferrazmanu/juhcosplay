@@ -26,7 +26,7 @@ const theme: DefaultTheme = {
     colors: {
         white: '#ebebeb',
         black: '#0a0a0a',
-        primary: '#000000',
+        primary: '#0a0a0a',
         secondary: '#2e2e2e',
         button: 'transparent',
     },
