@@ -51,9 +51,9 @@ const CosplayDetail: React.FC = () => {
 
     return (
         <MainWrapper>
-            <Container>
+            <Container fullheight>
                 {loading ? (
-                    <Loading />
+                    <Loading fullPage />
                 ) : (
                     <>
                         <PageContent

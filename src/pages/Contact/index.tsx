@@ -54,9 +54,9 @@ const Contact: React.FC = () => {
 
     return (
         <MainWrapper>
-            <Container>
+            <Container fullheight>
                 {loading ? (
-                    <Loading />
+                    <Loading fullPage />
                 ) : (
                     <S.ContactWrapper>
                         <PageContent title={'Contato'} />

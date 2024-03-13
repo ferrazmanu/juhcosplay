@@ -5,13 +5,14 @@ import { useTheme } from 'styled-components';
 interface Props {
     color?: string;
     size?: string;
+    fullPage?: boolean;
 }
 
-const Loading: FC<Props> = ({ color = '#fff', size = '54px' }) => {
+const Loading: FC<Props> = ({ color = '#fff', size = '54px', fullPage }) => {
     const theme = useTheme();
 
     return (
-        <Wrapper>
+        <Wrapper fullPage={fullPage}>
             <svg
                 version="1.0"
                 width={size}

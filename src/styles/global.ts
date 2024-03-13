@@ -33,7 +33,6 @@ const GlobalStyle = createGlobalStyle`
    }
 
    #root{
-       margin:0 auto;
        min-height: 100dvh;
    }
 
@@ -72,7 +71,6 @@ const GlobalStyle = createGlobalStyle`
     font-family: ${({ theme }) => theme.fonts.secondary};
     -webkit-font-smoothing: antialiased;
     -moz-osx-font-smoothing: grayscale;
-    transition: 0.3s ease-in-out;
     color: ${({ theme }) => theme.colors.primary};
     min-height: 100dvh;
     position: relative;

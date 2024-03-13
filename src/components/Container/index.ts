@@ -14,7 +14,7 @@ export const Container = styled.section<Props>`
     flex-direction: column;
     ${(props) => props.center && 'justify-content:center'};
     gap: ${({ theme }) => theme.spacing._30};
-    padding: 2dvh 15px;
+    padding: 0 15px;
     height: ${(props) => props.fullheight && '100%'};
     min-height: ${(props) => props.fullheight && 'inherit'};
 `;

@@ -41,16 +41,14 @@ const About: React.FC = () => {
 
     return (
         <MainWrapper>
-            <Container>
+            <Container fullheight>
                 {loading ? (
-                    <Loading />
+                    <Loading fullPage />
                 ) : (
-                    <>
-                        <PageContent
-                            title={pageContent.page.pageName}
-                            htmlText={pageContent.page.mainText.html}
-                        />
-                    </>
+                    <PageContent
+                        title={pageContent.page.pageName}
+                        htmlText={pageContent.page.mainText.html}
+                    />
                 )}
             </Container>
         </MainWrapper>

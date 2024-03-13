@@ -1,9 +1,9 @@
 import styled from 'styled-components';
 
 export const MainWrapper = styled.main`
-    /* altura minima removendo o tamanho do header e do footer */
-    min-height: calc(100dvh - 10px);
-    padding-top: 5vh;
+    /* altura minima removendo o tamanho do header e do footer e menos o padding-top*/
+    min-height: calc(100dvh - 10px - 5dvh);
+    padding-top: 5dvh;
     display: flex;
     flex-direction: column;
     gap: 30px;

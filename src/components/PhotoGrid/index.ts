@@ -9,6 +9,7 @@ export const PhotoGrid = styled.div`
     flex-wrap: wrap;
     width: 100%;
     gap: 20px;
+    padding-bottom: 5dvh;
 
     @media only screen and (max-width: 992px) {
         grid-template-columns: repeat(

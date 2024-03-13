@@ -6,7 +6,7 @@ export const Wrapper = styled.div`
     justify-content: center;
     gap: 15px;
     align-items: center;
-    margin-bottom: 10px;
+    margin-bottom: 5dvh;
     text-align: center;
 
     h2 {
