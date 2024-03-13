@@ -29,7 +29,9 @@ export interface EventProps {
 
 export interface PageProps {
     page: {
-        mainText?: string;
+        mainText: {
+            html: string | TrustedHTML;
+        };
         pageName?: string;
     };
 }

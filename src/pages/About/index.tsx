@@ -10,7 +10,9 @@ import { aboutPageQuery } from '../../data/queries';
 const About: React.FC = () => {
     const [pageContent, setPageContent] = useState<PageProps>({
         page: {
-            mainText: '',
+            mainText: {
+                html: '',
+            },
             pageName: '',
         },
     });
@@ -46,7 +48,7 @@ const About: React.FC = () => {
                     <>
                         <PageContent
                             title={pageContent.page.pageName}
-                            text={pageContent.page.mainText}
+                            htmlText={pageContent.page.mainText.html}
                         />
                     </>
                 )}

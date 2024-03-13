@@ -15,7 +15,9 @@ const Home: React.FC = () => {
     const [allEvents, setAllEvents] = useState<EventProps[]>([]);
     const [pageContent, setPageContent] = useState<PageProps>({
         page: {
-            mainText: '',
+            mainText: {
+                html: '',
+            },
             pageName: '',
         },
     });
@@ -67,7 +69,7 @@ const Home: React.FC = () => {
                     <>
                         <PageContent
                             title={pageContent.page.pageName}
-                            text={pageContent.page.mainText}
+                            htmlText={pageContent.page.mainText.html}
                         />
                         <PhotoGrid>
                             {allEvents.map((item) => {
