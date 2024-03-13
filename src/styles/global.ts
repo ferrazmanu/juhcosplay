@@ -82,7 +82,6 @@ const GlobalStyle = createGlobalStyle`
     color:red;
     display: block;
   }
-
 `;
 
 export default GlobalStyle;
