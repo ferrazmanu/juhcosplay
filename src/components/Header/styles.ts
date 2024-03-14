@@ -53,15 +53,6 @@ export const Header = styled.header<Props>`
         height: 100dvh;
         flex-direction: column;
 
-        ${(props) =>
-            props.open
-                ? css`
-                      transform: translateX(100%);
-                  `
-                : css`
-                      transform: translateX(0%);
-                  `}
-
         @media only screen and (max-width: 800px) {
             position: fixed;
             right: 0;
@@ -74,6 +65,15 @@ export const Header = styled.header<Props>`
             align-items: flex-end;
             text-align: right;
             gap: 10px;
+
+            ${(props) =>
+                props.open
+                    ? css`
+                          transform: translateX(100%);
+                      `
+                    : css`
+                          transform: translateX(0%);
+                      `}
         }
 
         @media only screen and (max-width: 600px) {
