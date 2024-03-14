@@ -10,10 +10,10 @@ const Header: FC = () => {
     const [open, setOpen] = useState(false);
 
     return (
-        <S.Header open={open}>
+        <S.Header open={!open}>
             <button
                 type="button"
-                onClick={() => setOpen(!open)}
+                onClick={() => setOpen(true)}
                 className="open"
             >
                 <MenuIcon color="inherit" />
@@ -21,14 +21,14 @@ const Header: FC = () => {
             <ul>
                 <button
                     type="button"
-                    onClick={() => setOpen(!open)}
+                    onClick={() => setOpen(false)}
                     className="close"
                 >
                     <CloseIcon />
                 </button>
                 {links.map((item) => {
                     return (
-                        <li key={item.id}>
+                        <li key={item.id} onClick={() => setOpen(false)}>
                             <a href={item.link}>{item.title}</a>
                         </li>
                     );
